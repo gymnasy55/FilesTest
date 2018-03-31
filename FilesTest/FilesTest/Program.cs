@@ -49,11 +49,7 @@ namespace FilesTest
                         }
                         Console.Write("Удаление файлов прошло успешно!\nНажмите любую клавишу...");
                     }
-                    catch(Exception ex)
-                    {
-                        Console.Write("Произошла ошибка: ");
-                        Console.Write(ex.Message+"\nНажмите любую клавишу...");
-                    }
+                    catch(Exception ex) { Console.Write("Произошла ошибка: " + ex.Message + "\nНажмите любую клавишу..."); }
                 }
                 else
                 {
@@ -70,11 +66,7 @@ namespace FilesTest
                         }
                         Console.Write("Создание прошло успешно!\nНажмите любую клавишу...");
                     }
-                    catch (Exception ex)
-                    {
-                        Console.Write("Произошла ошибка: ");
-                        Console.Write(ex.Message + "\nНажмите любую клавишу...");
-                    }
+                    catch (Exception ex) { Console.Write("Произошла ошибка: " + ex.Message + "\nНажмите любую клавишу..."); }
                 }
             }
             else { Console.Write("Диски не доступны\nНажмите любую клавишу..."); }
