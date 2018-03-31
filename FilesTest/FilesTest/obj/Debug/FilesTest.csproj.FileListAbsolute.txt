@@ -4,3 +4,9 @@ E:\C#\FilesTest\FilesTest\obj\Debug\FilesTest.csprojResolveAssemblyReference.cac
 E:\C#\FilesTest\FilesTest\obj\Debug\FilesTest.csproj.CoreCompileInputs.cache
 E:\C#\FilesTest\FilesTest\obj\Debug\FilesTest.exe
 E:\C#\FilesTest\FilesTest\obj\Debug\FilesTest.pdb
+E:\Github\FilesTest\FilesTest\FilesTest\FilesTest\bin\Debug\FilesTest.exe
+E:\Github\FilesTest\FilesTest\FilesTest\FilesTest\bin\Debug\FilesTest.pdb
+E:\Github\FilesTest\FilesTest\FilesTest\FilesTest\obj\Debug\FilesTest.csprojResolveAssemblyReference.cache
+E:\Github\FilesTest\FilesTest\FilesTest\FilesTest\obj\Debug\FilesTest.csproj.CoreCompileInputs.cache
+E:\Github\FilesTest\FilesTest\FilesTest\FilesTest\obj\Debug\FilesTest.exe
+E:\Github\FilesTest\FilesTest\FilesTest\FilesTest\obj\Debug\FilesTest.pdb
