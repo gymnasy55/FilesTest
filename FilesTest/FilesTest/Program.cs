@@ -12,7 +12,7 @@ namespace FilesTest
         {
             Console.WriteLine("Доступные диски: ");
             string[] drives = Environment.GetLogicalDrives();
-            if(drives != null)
+            if(drives.Length != 0)
             {
                 int counter = 1;
                 foreach (string s in drives)
@@ -23,53 +23,57 @@ namespace FilesTest
                 Console.Write("Введите номер диска: ");
                 int disk;
                 Int32.TryParse(Console.ReadLine(), out disk);
-                Console.WriteLine("Доступные каталоги: ");
                 DirectoryInfo info = new DirectoryInfo(drives[disk - 1] + "\\");
                 DirectoryInfo[] dirs = info.GetDirectories();
-                counter = 1;
-                foreach (var dr in dirs)
+                if(dirs.Length != 0)
                 {
-                    Console.WriteLine(counter.ToString() + '-' + dr.Name);
-                    counter++;
-                }
-                Console.Write("Введите номер каталога: ");
-                int name;
-                Int32.TryParse(Console.ReadLine(), out name);
-                DirectoryInfo dir = new DirectoryInfo(drives[disk - 1] + "\\" + dirs[name-1] + "\\");
-                Console.Write("Введите режим работы программы (0 - удаление всех файлов каталога, 1 - создание пяти файлов в каталоге): ");
-                int mode;
-                Int32.TryParse(Console.ReadLine(), out mode);
-                if (mode == 0)
-                {
-                    try
+                    Console.WriteLine("Доступные каталоги: ");
+                    counter = 1;
+                    foreach (var dr in dirs)
                     {
-                        foreach (FileInfo file in dir.GetFiles())
-                        {
-                            file.Delete();
-                        }
-                        Console.Write("Удаление файлов прошло успешно!\nНажмите любую клавишу...");
+                        Console.WriteLine(counter.ToString() + '-' + dr.Name);
+                        counter++;
                     }
-                    catch(Exception ex) { Console.Write("Произошла ошибка: " + ex.Message + "\nНажмите любую клавишу..."); }
-                }
-                else
-                {
-                    try
+                    Console.Write("Введите номер каталога: ");
+                    int name;
+                    Int32.TryParse(Console.ReadLine(), out name);
+                    DirectoryInfo dir = new DirectoryInfo(drives[disk - 1] + "\\" + dirs[name - 1] + "\\");
+                    Console.Write("Введите режим работы программы (0 - удаление всех файлов каталога, 1 - создание пяти файлов в каталоге): ");
+                    int mode;
+                    Int32.TryParse(Console.ReadLine(), out mode);
+                    if (mode == 0)
                     {
-                        for (int i = 0; i < 5; i++)
+                        try
                         {
-                            using (StreamWriter writer = new StreamWriter(dir.FullName + i.ToString() + ".ssp"))
+                            foreach (FileInfo file in dir.GetFiles())
                             {
-                                writer.Write(i);
-                                writer.Flush();
-                                writer.Close();
+                                file.Delete();
                             }
+                            Console.Write("Удаление файлов прошло успешно!\nНажмите любую клавишу...");
                         }
-                        Console.Write("Создание прошло успешно!\nНажмите любую клавишу...");
+                        catch (Exception ex) { Console.Write("Произошла ошибка: " + ex.Message + "\nНажмите любую клавишу..."); }
                     }
-                    catch (Exception ex) { Console.Write("Произошла ошибка: " + ex.Message + "\nНажмите любую клавишу..."); }
+                    else
+                    {
+                        try
+                        {
+                            for (int i = 0; i < 5; i++)
+                            {
+                                using (StreamWriter writer = new StreamWriter(dir.FullName + i.ToString() + ".ssp"))
+                                {
+                                    writer.Write(i);
+                                    writer.Flush();
+                                    writer.Close();
+                                }
+                            }
+                            Console.Write("Создание прошло успешно!\nНажмите любую клавишу...");
+                        }
+                        catch (Exception ex) { Console.Write("Произошла ошибка: " + ex.Message + "\nНажмите любую клавишу..."); }
+                    }
                 }
+                else { Console.Write("Папок нет и/или не доступны\nНажмите любую клавишу..."); }
             }
-            else { Console.Write("Диски не доступны\nНажмите любую клавишу..."); }
+            else { Console.Write("Дисков нет и/или не доступны\nНажмите любую клавишу..."); }
             Console.ReadKey();
         }
     }
